@@ -49,7 +49,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 ## Docker
 - Multi-stage build in `Dockerfile` (uses `node:24-alpine`)
 - Prisma generate runs during build, standalone output deployed
-- Expects `DATABASE_URL`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL` env vars
+- Expects `DATABASE_URL`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URLs` env vars
 
 ## Environment setup
 - Copy `.env.example` to `.env` and configure database connection
@@ -58,5 +58,5 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## ข้อกำหนดหลัก
 - แยก TypeScript Type ทุกอย่าง ออกไปไสว้ใน Folder src/types
-- การตั้งชื่อไฟล์ TypeSript (.ts) ให้ตั้งตามตัวอย่างนี้ คือ source-service.ts
+- การตั้งชื่อไฟล์ TypeSript (.ts) ให้ตั้งตามตัวอย่างนี้ คือ source_service.ts
 - ห้ามใช้คำสั่ง npx prisma db push
