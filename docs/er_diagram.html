@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce ER Diagram</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+        h1 {
+            color: #333;
+        }
+        .diagram {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>E-Commerce Database ER Diagram</h1>
+    <div class="diagram">
+        <pre class="mermaid">
+            erDiagram
+                categories ||--o{ products : "has"
+                customers ||--o{ orders : "places"
+                orders ||--o{ order_items : "contains"
+                products ||--o{ order_items : "included in"
+                products ||--o{ product_images : "has"
+
+                categories {
+                    int id PK
+                    string name
+                }
+                products {
+                    int id PK
+                    string name
+                    text description
+                    double price
+                    int category_id FK
+                }
+                customers {
+                    int id PK
+                    string name
+                    string address
+                    string phone
+                }
+                orders {
+                    int id PK
+                    datetime date
+                    int customer_id FK
+                    enum status
+                    double total_amount
+                }
+                order_items {
+                    int id PK
+                    int order_id FK
+                    int product_id FK
+                    int quantity
+                    double price
+                }
+                product_images {
+                    int id PK
+                    int product_id FK
+                    text image_name
+                    timestamp created_at
+                }
+        </pre>
+    </div>
+</body>
+</html>
