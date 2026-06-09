@@ -5,3 +5,9 @@ export async function getCourses() {
   const data = await response.json();
   return data.data;
 }
+
+export async function getApiVersion() {
+  const response = await fetch(`${API_BASE_URL}/version`);
+  const data = await response.json();
+  return data.data;
+}

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import AppLoading from "../components/app-loading";
 import { Suspense } from "react";
-import { getApiVersion } from "@/services/api";
+import { getApiVersion } from "@/services/course-service";
 
 async function ApiVersion() {
   const { version } = await getApiVersion();
